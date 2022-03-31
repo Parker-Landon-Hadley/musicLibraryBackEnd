@@ -1,0 +1,23 @@
+{
+  "name": "MusicLibraryStarterCode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parker-Landon-Hadley/musicLibraryBackEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Parker-Landon-Hadley/musicLibraryBackEnd/issues"
+  },
+  "homepage": "https://github.com/Parker-Landon-Hadley/musicLibraryBackEnd#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
