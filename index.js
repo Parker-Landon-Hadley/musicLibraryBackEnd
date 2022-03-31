@@ -11,7 +11,7 @@ app.use(express.json());
 
 // GET
 // http://localhost:5005/
-app.get("/", (req, res) => {
+app.get("/songs", (req, res) => {
     console.log(req.headers)
     res.send("This is a response!");
 
