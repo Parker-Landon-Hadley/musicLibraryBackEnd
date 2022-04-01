@@ -198,13 +198,5 @@
     "artist": "The Dude",
     "genre": "Ground Breaking",
     "releaseDate": "01/01/2045"
-  },
-  {
-    "id": 26,
-    "title": "Yay",
-    "album": "So much fun",
-    "artist": "Big Yay",
-    "genre": "Ground Breaking",
-    "releaseDate": "01/01/2047"
   }
 ]
