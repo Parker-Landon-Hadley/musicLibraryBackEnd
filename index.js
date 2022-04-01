@@ -1,12 +1,14 @@
 // Imports
 const express = require("express");
-const repoContext = require("./repository/repository-wrapper")
+const repoContext = require("./repository/repository-wrapper");
+const songValidate = require("./middleware/song-validation");
+const songLogger = require("./middleware/song-logger");
 const app = express();
 
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // Endpoints
 // http://localhost:5005 (BASE URL)
@@ -33,7 +35,7 @@ app.get("/api/songs/:id", (req, res) => {
 
 // POST new song
 // http://localhost:5005/api/songs
-app.post("/api/songs", (req, res) => {
+app.post("/api/songs", [songLogger, songValidate], (req, res) => {
     const newSong = req.body;
     const addedSong = repoContext.songs.createSong(newSong);
     return res.status(201).send(addedSong)
@@ -42,7 +44,7 @@ app.post("/api/songs", (req, res) => {
 
 // PUT an existing song
 // http://localhost:5005/api/songs/:id
-app.put("/api/songs/:id", (req, res) => {
+app.put("/api/songs/:id", [songValidate], (req, res) => {
     const id = parseInt(req.params.id);
     const songPropertiesToModify = req.body;
     const songToUpdate = repoContext.songs.updateSong(id, songPropertiesToModify);
