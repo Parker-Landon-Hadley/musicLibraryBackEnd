@@ -1,5 +1,6 @@
 // Imports
 const express = require("express");
+const repoContext = require("./repository/repository-wrapper")
 const app = express();
 
 
@@ -9,11 +10,11 @@ app.use(express.json());
 // Endpoints
 // http://localhost:5005 (BASE URL)
 
-// GET
-// http://localhost:5005/
-app.get("/songs", (req, res) => {
-    console.log(req.headers)
-    res.send("This is a response!");
+// GET all music
+// http://localhost:5005/api/songs
+app.get("/api/songs", (req, res) => {
+    const songs = repoContext.songs.findAllSongs()
+    return res.send(songs);
 
 })
 
